@@ -10,7 +10,7 @@ run_fgsea <- function( pathwaysDatabase, ranksOfGenes, minSizeGroup = 15, maxSiz
       gmtFile[[i]] <- gmtFile[[i]][-exclude]
     }
   }
-  fgseaRes <- fgsea(pathways = examplePathways, stats = exampleRanks, minSize = 15, maxSize = 500, nperm = 1000)
+  fgseaRes <- fgsea(pathways = gmtFile, stats = ranksOfGenes, minSize = 15, maxSize = 500, nperm = 1000)
   if(filterPathways) {
     fgseaRes <- fgseaRes[which(fgseaRes$padj <= pFilter),]
   }
