@@ -10,9 +10,13 @@ run_fgsea <- function( pathwaysDatabase, ranksOfGenes, minSizeGroup = 15, maxSiz
       gmtFile[[i]] <- gmtFile[[i]][-exclude]
     }
   }
-  fgseaRes <- fgsea(pathways = gmtFile, stats = ranksOfGenes, minSize = 15, maxSize = 500, nperm = 1000)
+  
+  ranks <- read.table(ranksOfGenes, header = TRUE, colClasses = c("character", "numeric"))
+  ranks <- setNames(ranks[,2], ranks[,1])
+  fgseaRes <- fgsea(pathways = gmtFile, stats = ranks, minSize = minSizeGroup, maxSize = maxSizeGroup, nperm = npermGroup)
   if(filterPathways) {
     fgseaRes <- fgseaRes[which(fgseaRes$padj <= pFilter),]
   }
   return(fgseaRes)
 }
+
