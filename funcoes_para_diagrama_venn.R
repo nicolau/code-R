@@ -117,7 +117,7 @@ plot.pairwise.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
 
     write.table(exclusive$a1, file = paste(prefix, "_exclusive_", labels[1],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
     write.table(exclusive$a2, file = paste(prefix, "_exclusive_", labels[2],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
-    write.table(data$n12, file = paste(prefix, "_", labels[1],"_vs_", labels[2],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+    write.table(data$n12, file = paste(prefix, "_", labels[1],"_and_", labels[2],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
   }
   
   return(data$n12)
@@ -204,10 +204,10 @@ plot.triple.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g", "h" ),
     data$n13 <- setdiff(data$n13, data$n123)
     data$n23 <- setdiff(data$n23, data$n123)
     
-    write.table(data$n12, file = paste(prefix, "_", labels[1],"_vs_", labels[2],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
-    write.table(data$n13, file = paste(prefix, "_", labels[1],"_vs_", labels[3],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
-    write.table(data$n23, file = paste(prefix, "_", labels[2],"_vs_", labels[3],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
-    write.table(data$n123, file = paste(prefix, "_", labels[1],"_vs_", labels[2],"_vs_", labels[3],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+    write.table(data$n12, file = paste(prefix, "_", labels[1],"_and_", labels[2],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+    write.table(data$n13, file = paste(prefix, "_", labels[1],"_and_", labels[3],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+    write.table(data$n23, file = paste(prefix, "_", labels[2],"_and_", labels[3],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+    write.table(data$n123, file = paste(prefix, "_", labels[1],"_and_", labels[2],"_and_", labels[3],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
   }
   
   return(data$n123)
@@ -311,17 +311,17 @@ plot.quad.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
     write.table(exclusive$a3, file = paste(prefix, "_exclusive_", labels[3],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
     write.table(exclusive$a4, file = paste(prefix, "_exclusive_", labels[4],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
     
-    write.table(data$n12, file = paste(prefix, "_", labels[1],"_vs_", labels[2],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
-    write.table(data$n13, file = paste(prefix, "_", labels[1],"_vs_", labels[3],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
-    write.table(data$n14, file = paste(prefix, "_", labels[1],"_vs_", labels[4],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
-    write.table(data$n23, file = paste(prefix, "_", labels[2],"_vs_", labels[3],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
-    write.table(data$n24, file = paste(prefix, "_", labels[2],"_vs_", labels[4],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
-    write.table(data$n34, file = paste(prefix, "_", labels[3],"_vs_", labels[4],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
-    write.table(data$n123, file = paste(prefix, "_", labels[1],"_vs_", labels[2],"_vs_", labels[3],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
-    write.table(data$n124, file = paste(prefix, "_", labels[1],"_vs_", labels[2],"_vs_", labels[4],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
-    write.table(data$n134, file = paste(prefix, "_", labels[1],"_vs_", labels[3],"_vs_", labels[4],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
-    write.table(data$n234, file = paste(prefix, "_", labels[2],"_vs_", labels[3],"_vs_", labels[4],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
-    write.table(data$n1234, file = paste(prefix, "_", labels[1],"_vs_", labels[2],"_vs_", labels[3],"_vs_", labels[4],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+    write.table(data$n12, file = paste(prefix, "_", labels[1],"_and_", labels[2],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+    write.table(data$n13, file = paste(prefix, "_", labels[1],"_and_", labels[3],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+    write.table(data$n14, file = paste(prefix, "_", labels[1],"_and_", labels[4],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+    write.table(data$n23, file = paste(prefix, "_", labels[2],"_and_", labels[3],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+    write.table(data$n24, file = paste(prefix, "_", labels[2],"_and_", labels[4],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+    write.table(data$n34, file = paste(prefix, "_", labels[3],"_and_", labels[4],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+    write.table(data$n123, file = paste(prefix, "_", labels[1],"_and_", labels[2],"_and_", labels[3],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+    write.table(data$n124, file = paste(prefix, "_", labels[1],"_and_", labels[2],"_and_", labels[4],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+    write.table(data$n134, file = paste(prefix, "_", labels[1],"_and_", labels[3],"_and_", labels[4],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+    write.table(data$n234, file = paste(prefix, "_", labels[2],"_and_", labels[3],"_and_", labels[4],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+    write.table(data$n1234, file = paste(prefix, "_", labels[1],"_and_", labels[2],"_and_", labels[3],"_and_", labels[4],".txt", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
   }
   
   return(data$n1234)
