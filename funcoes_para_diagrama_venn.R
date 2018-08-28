@@ -61,7 +61,8 @@ plot.pairwise.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
                                labels = c("Group1", "Group2"),
                                file = "NULL",
                                saveGroupFile = FALSE,
-                               graphicType = c("tiff", "png", "pdf")) {
+                               graphicType = c("tiff", "png", "pdf"),
+                               heightGraph = 7) {
   exclusive <- NULL
   data <- NULL
   data$values <- unique(c(a1, a2))
@@ -130,7 +131,8 @@ plot.triple.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g", "h" ),
                              labels = c("Group1", "Group2", "Group3"),
                              file = "NULL",
                              saveGroupFile = FALSE,
-                             graphicType = c("tiff", "png", "pdf")) {
+                             graphicType = c("tiff", "png", "pdf"),
+                             heightGraph = 7) {
   exclusive <- NULL
   data <- NULL
   data$values <- unique(c(a1, a2, a3))
@@ -222,7 +224,8 @@ plot.quad.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
                            labels = c("Group1", "Group2", "Group3", "Group4"),
                            file = "NULL",
                            saveGroupFile = FALSE,
-                           graphicType = c("tiff", "png", "pdf")) {
+                           graphicType = c("tiff", "png", "pdf"),
+                           heightGraph = 7) {
   exclusive <- NULL
   data <- NULL
   data$values <- unique(c(a1, a2, a3, a4))
