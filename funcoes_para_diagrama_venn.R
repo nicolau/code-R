@@ -3,7 +3,8 @@ plot.single.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
                              labels = c("Group1"),
                              file = "NULL",
                              saveGroupFile = FALSE,
-                             graphicType = c("tiff", "png", "pdf")) {
+                             graphicType = c("tiff", "png", "pdf"),
+                             heightGraph = 7) {
   data <- NULL
   data$values <- unique(c(a1))
   
@@ -24,15 +25,15 @@ plot.single.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
   if(file != "NULL") {
     dev.off()
     if(graphicType == "tiff") {
-      tiff(filename = file)
+      tiff(filename = file, height = heightGraph)
       grid.draw(venn.plot)
     }
     else if(graphicType == "pdf") {
-      pdf(file)
+      pdf(file, height = heightGraph)
       grid.draw(venn.plot)
     }
     else {
-      png(filename = file)
+      png(filename = file, height = heightGraph)
       grid.draw(venn.plot)
     }
     dev.off()
@@ -87,15 +88,15 @@ plot.pairwise.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
   if(file != "NULL") {
     dev.off()
     if(graphicType == "tiff") {
-      tiff(filename = file)
+      tiff(filename = file, height = heightGraph)
       grid.draw(venn.plot)
     }
     else if(graphicType == "pdf") {
-      pdf(file)
+      pdf(file, height = heightGraph)
       grid.draw(venn.plot)
     }
     else {
-      png(filename = file)
+      png(filename = file, height = heightGraph)
       grid.draw(venn.plot)
     }
     dev.off()
@@ -165,15 +166,15 @@ plot.triple.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g", "h" ),
   if(file != "NULL") {
     dev.off()
     if(graphicType == "tiff") {
-      tiff(filename = file)
+      tiff(filename = file, height = heightGraph)
       grid.draw(venn.plot)
     }
     else if(graphicType == "pdf") {
-      pdf(file)
+      pdf(file, height = heightGraph)
       grid.draw(venn.plot)
     }
     else {
-      png(filename = file)
+      png(filename = file, height = heightGraph)
       grid.draw(venn.plot)
     }
     dev.off()
@@ -276,15 +277,15 @@ plot.quad.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
   if(file != "NULL") {
     dev.off()
     if(graphicType == "tiff") {
-      tiff(filename = file)
+      tiff(filename = file, height = heightGraph)
       grid.draw(venn.plot)
     }
     else if(graphicType == "pdf") {
-      pdf(file)
+      pdf(file, height = heightGraph)
       grid.draw(venn.plot)
     }
     else {
-      png(filename = file)
+      png(filename = file, height = heightGraph)
       grid.draw(venn.plot)
     }
     dev.off()
