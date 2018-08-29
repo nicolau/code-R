@@ -4,7 +4,7 @@ plot.single.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
                              file = "NULL",
                              saveGroupFile = FALSE,
                              graphicType = c("tiff", "png", "pdf"),
-                             heightGraph = 7) {
+                             widthGraph = 7) {
   data <- NULL
   data$values <- unique(c(a1))
   
@@ -25,15 +25,15 @@ plot.single.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
   if(file != "NULL") {
     dev.off()
     if(graphicType == "tiff") {
-      tiff(filename = file, height = heightGraph)
+      tiff(filename = file, width = widthGraph)
       grid.draw(venn.plot)
     }
     else if(graphicType == "pdf") {
-      pdf(file, height = heightGraph)
+      pdf(file, width = widthGraph)
       grid.draw(venn.plot)
     }
     else {
-      png(filename = file, height = heightGraph)
+      png(filename = file, width = widthGraph)
       grid.draw(venn.plot)
     }
     dev.off()
@@ -62,7 +62,7 @@ plot.pairwise.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
                                file = "NULL",
                                saveGroupFile = FALSE,
                                graphicType = c("tiff", "png", "pdf"),
-                               heightGraph = 7) {
+                               widthGraph = 7) {
   exclusive <- NULL
   data <- NULL
   data$values <- unique(c(a1, a2))
@@ -89,15 +89,15 @@ plot.pairwise.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
   if(file != "NULL") {
     dev.off()
     if(graphicType == "tiff") {
-      tiff(filename = file, height = heightGraph)
+      tiff(filename = file, width = widthGraph)
       grid.draw(venn.plot)
     }
     else if(graphicType == "pdf") {
-      pdf(file, height = heightGraph)
+      pdf(file, width = widthGraph)
       grid.draw(venn.plot)
     }
     else {
-      png(filename = file, height = heightGraph)
+      png(filename = file, width = widthGraph)
       grid.draw(venn.plot)
     }
     dev.off()
@@ -132,7 +132,7 @@ plot.triple.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g", "h" ),
                              file = "NULL",
                              saveGroupFile = FALSE,
                              graphicType = c("tiff", "png", "pdf"),
-                             heightGraph = 7) {
+                             widthGraph = 7) {
   exclusive <- NULL
   data <- NULL
   data$values <- unique(c(a1, a2, a3))
@@ -168,15 +168,15 @@ plot.triple.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g", "h" ),
   if(file != "NULL") {
     dev.off()
     if(graphicType == "tiff") {
-      tiff(filename = file, height = heightGraph)
+      tiff(filename = file, width = widthGraph)
       grid.draw(venn.plot)
     }
     else if(graphicType == "pdf") {
-      pdf(file, height = heightGraph)
+      pdf(file, width = widthGraph)
       grid.draw(venn.plot)
     }
     else {
-      png(filename = file, height = heightGraph)
+      png(filename = file, width = widthGraph)
       grid.draw(venn.plot)
     }
     dev.off()
@@ -225,7 +225,7 @@ plot.quad.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
                            file = "NULL",
                            saveGroupFile = FALSE,
                            graphicType = c("tiff", "png", "pdf"),
-                           heightGraph = 7) {
+                           widthGraph = 7) {
   exclusive <- NULL
   data <- NULL
   data$values <- unique(c(a1, a2, a3, a4))
@@ -280,15 +280,15 @@ plot.quad.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
   if(file != "NULL") {
     dev.off()
     if(graphicType == "tiff") {
-      tiff(filename = file, height = heightGraph)
+      tiff(filename = file, width = widthGraph)
       grid.draw(venn.plot)
     }
     else if(graphicType == "pdf") {
-      pdf(file, height = heightGraph)
+      pdf(file, width = widthGraph)
       grid.draw(venn.plot)
     }
     else {
-      png(filename = file, height = heightGraph)
+      png(filename = file, width = widthGraph)
       grid.draw(venn.plot)
     }
     dev.off()
