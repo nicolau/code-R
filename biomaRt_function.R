@@ -41,7 +41,8 @@ getGeneSymbolFromTranscriptId <- function(values, type = c("transcriptId", "gene
   }
 }
 
-#result <- getGeneSymbolFromTranscriptId(values = c("ENSMUST00000093162", "ENSMUST00000139143"), type = "transcript", organism = "mmusculus")
-#result <- getGeneSymbolFromTranscriptId(values = c("ENSMUST00000093162", "ENSMUST00000139143"), type = "transcript", organism = "mmusculus", onlyProteinCoding = T)
-#result <- getGeneSymbolFromTranscriptId(values = c("ENSMUST00000093162", "ENSMUST00000139143"), type = "transcript", organism = "mmusculus", onlyProteinCoding = F, onlyGeneSymbol = T)
-#result <- getGeneSymbolFromTranscriptId(values = c("ENSG00000204490"), type = "gene", organism = "hsapiens")
+#result <- getGeneSymbolFromTranscriptId(values = c("ENSMUST00000093162", "ENSMUST00000139143"), type = "transcriptId", organism = "mmusculus")
+#result <- getGeneSymbolFromTranscriptId(values = c("ENSMUST00000093162", "ENSMUST00000139143"), type = "transcriptId", organism = "mmusculus", onlyProteinCoding = T)
+#result <- getGeneSymbolFromTranscriptId(values = c("ENSMUST00000093162", "ENSMUST00000139143"), type = "transcriptId", organism = "mmusculus", onlyProteinCoding = F, onlyGeneSymbol = T)
+#result <- getGeneSymbolFromTranscriptId(values = c("ENSG00000204490"), type = "geneId", organism = "hsapiens")
+#result <- getGeneSymbolFromTranscriptId(values = c("Ago1"), type = "geneSymbol", organism = "mmusculus")
