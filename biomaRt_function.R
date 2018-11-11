@@ -1,4 +1,4 @@
-getGeneSymbolFromTranscriptId <- function(values, type = c("transcript", "gene"), organism = c("mmusculus", "hsapiens"), onlyProteinCoding = FALSE, onlyGeneSymbol = FALSE) {
+getGeneSymbolFromTranscriptId <- function(values, type = c("transcriptId", "geneId", "geneSymbol"), organism = c("mmusculus", "hsapiens"), onlyProteinCoding = FALSE, onlyGeneSymbol = FALSE) {
   require(biomaRt)
   att <- NULL
   symbol <- NULL
@@ -13,11 +13,14 @@ getGeneSymbolFromTranscriptId <- function(values, type = c("transcript", "gene")
   }
   
   filterData <- NULL
-  if(type == "transcript") {
+  if(type == "transcriptId") {
     filterData <- "ensembl_transcript_id"
   }
-  else if(type == "gene") {
+  else if(type == "geneId") {
     filterData <- "ensembl_gene_id"
+  }
+  else if(type == "geneSymbol") {
+    filterData <- symbol
   }
   results <- getBM(attributes=c(symbol, "transcript_biotype", filterData), filters = filterData, values = values, mart = ensembl)
   if(onlyProteinCoding) {
