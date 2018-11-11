@@ -1,6 +1,6 @@
 getGeneSymbolFromTranscriptId <- function(values, type = c("transcriptId", "geneId", "geneSymbol"), organism = c("mmusculus", "hsapiens"), onlyProteinCoding = FALSE, onlyGeneSymbol = FALSE) {
   require(biomaRt)
-  att <- NULL
+  att <- NULL # Attributes to show as results
   symbol <- NULL
   ensembl <- NULL
   if(organism == "mmusculus") {
