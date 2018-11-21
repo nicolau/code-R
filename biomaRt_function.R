@@ -15,9 +15,9 @@ getGeneSymbolFromTranscriptId <- function(values, type = c("transcriptId", "gene
   filterData <- NULL
   if(type == "transcriptId") {
     filterData <- "ensembl_transcript_id"
-    att <- c("ensembl_transcript_id", "transcript_count")  
+    att <- c("ensembl_transcript_id", "transcript_count")
   }
-  else if(type == "geneId") {
+  else if(type == "geneId") { 
     filterData <- "ensembl_gene_id"
     att <- c("ensembl_gene_id", "transcript_count")
   }
