@@ -15,15 +15,15 @@ getGeneSymbolFromTranscriptId <- function(values, type = c("transcriptId", "gene
   filterData <- NULL
   if(type == "transcriptId") {
     filterData <- "ensembl_transcript_id"
-    att <- c("ensembl_transcript_id", "ccds")
+    att <- c("ensembl_transcript_id", "refseq_dna")
   }
   else if(type == "geneId") { 
     filterData <- "ensembl_gene_id"
-    att <- c("ensembl_gene_id", "ccds")
+    att <- c("ensembl_gene_id", "refseq_dna")
   }
   else if(type == "geneSymbol") {
     filterData <- symbol
-    att <- c("ensembl_transcript_id", "ensembl_gene_id", "ccds") 
+    att <- c("ensembl_transcript_id", "ensembl_gene_id", "refseq_dna") 
   }
   results <- getBM(attributes=c(symbol, "transcript_biotype", att), filters = filterData, values = values, mart = ensembl)
   if(onlyProteinCoding) {
