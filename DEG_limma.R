@@ -30,9 +30,13 @@ DEG_limma_random <- function(exp, samplesinfo, treatedGroup = "treated", control
     DEG_table2 <- DEG_limma(exp2, samplesinfo2, treatedGroup, controlGroup, adjPcut)
     
     if(debug) print("Saving results in file...")
-    write.table( x = paste( i, dim(DEG_table2)[1], paste( outlierJoined, collapse = "|" ), sep = "\t" ), file = paste( "random_outlier_removing_DEGs_", treatedGroup,".txt", sep = "" ), append = TRUE, quote = FALSE, col.names = FALSE, row.names = FALSE)
+    write.table( x = paste( i, dim(DEG_table2)[1], paste( outlierJoined, collapse = "|" ), sep = "\t" ), file = paste0( "random_outlier_removing_DEGs_", treatedGroup,".txt" ), append = TRUE, quote = FALSE, col.names = FALSE, row.names = FALSE)
     
     if(debug) print("############ Done ############")
     if(debug) print("##############################")
   }
+  randomDEGs <- read.delim(paste0("random_outlier_removing_DEGs_", treatedGroup, ".txt"), header = T)
+  
+  data.frame(min = min(randomDEGs$X.DEGs), max = max(randomDEGs$X.DEGs), mean = mean(randomDEGs$X.DEGs))
 }
+
