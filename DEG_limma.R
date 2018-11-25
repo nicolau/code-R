@@ -4,8 +4,8 @@ DEG_limma <- function(exp, samplesinfo, treatedGroup = "treated", controlGroup =
   fit <- limma::lmFit(exp, design)
   cont <- limma::makeContrasts(paste0(treatedGroup, "-", controlGroup), levels = design)
   fit.cont <- limma::contrasts.fit(fit, cont)
-  fit <- limma::eBayes(fit.cont)
-  result <- limma::topTable(fit, n=Inf)
+  fit <- limma::eBayes(fit.cont, trend=TRUE)
+  result <- limma::topTable(fit, n=Inf, coef=ncol(design))
   result <- result[result[,"adj.P.Val"] < adjPcut,]
   result
 }
