@@ -15,7 +15,7 @@ DEG_ttest <- function(exp, samplesinfo, treatedGroup = "treated", controlGroup =
                     rowMeans(exp[, which(as.character(samplesinfo$Class) == controlGroup)]))
   Log2FCs <- log2(FCs)
   result <- data.frame(Ps, AdjPs, FCs, Log2FCs)
-  result <- result[result[, "AdjPs"] < as.numeric(adjPcut), ]
+  result <- result[result[, "AdjPs"] < adjPcut, ]
   result
 }
 
