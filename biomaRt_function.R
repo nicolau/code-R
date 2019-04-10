@@ -5,11 +5,11 @@ getGeneSymbolFromTranscriptId <- function(values, type = c("transcriptId", "gene
   ensembl <- NULL
   if(organism == "mmusculus") { 
     symbol <- "mgi_symbol"
-    ensembl<-  useMart("ensembl", dataset="mmusculus_gene_ensembl") 
+    ensembl<-  useMart("ensembl", dataset="mmusculus_gene_ensembl", host = "www.ensembl.org", ensemblRedirect = FALSE)
   }
   else if(organism == "hsapiens") {
     symbol <- "hgnc_symbol"
-    ensembl<-  useMart("ensembl", dataset="hsapiens_gene_ensembl")
+    ensembl<-  useMart("ensembl", dataset="hsapiens_gene_ensembl", host = "www.ensembl.org", ensemblRedirect = FALSE)
   }
   
   filterData <- NULL
