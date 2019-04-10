@@ -9,7 +9,7 @@ getGeneSymbolFromTranscriptId <- function(values, type = c("transcriptId", "gene
   }
   else if(organism == "hsapiens") {
     symbol <- "hgnc_symbol"
-    ensembl<-  useMart("ensembl", dataset="hsapiens_gene_ensembl", host = "www.ensembl.org")
+    ensembl<-  useMart("ensembl", dataset="hsapiens_gene_ensembl", host = "www.ensembl.org") 
   }
   
   filterData <- NULL
