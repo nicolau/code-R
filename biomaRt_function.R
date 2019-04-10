@@ -5,7 +5,7 @@ getGeneSymbolFromTranscriptId <- function(values, type = c("transcriptId", "gene
   ensembl <- NULL
   if(organism == "mmusculus") { 
     symbol <- "mgi_symbol"
-    ensembl<-  useMart("ensembl", dataset="mmusculus_gene_ensembl", host = "www.ensembl.org")
+    ensembl<-  useMart("ensembl", dataset="mmusculus_gene_ensembl", host = "www.ensembl.org") 
   }
   else if(organism == "hsapiens") {
     symbol <- "hgnc_symbol"
