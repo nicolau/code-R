@@ -1,15 +1,15 @@
-getGeneSymbolFromTranscriptId <- function(values, type = c("transcriptId", "geneId", "geneSymbol"), organism = c("mmusculus", "hsapiens"), onlyProteinCoding = FALSE, onlyGeneSymbol = FALSE) {
+getGeneSymbolFromTranscriptId <- function(values, type = c("transcriptId", "geneId", "geneSymbol"), organism = c("mmusculus", "hsapiens"), onlyProteinCoding = FALSE, onlyGeneSymbol = FALSE, hostname = "uswest.ensembl.org") {
   require(biomaRt)
   att <- NULL # Attributes to show as results
   symbol <- NULL
   ensembl <- NULL
   if(organism == "mmusculus") { 
     symbol <- "mgi_symbol"
-    ensembl<-  useMart("ensembl", dataset="mmusculus_gene_ensembl", host="uswest.ensembl.org")
+    ensembl<-  useMart("ensembl", dataset="mmusculus_gene_ensembl", host=hostname)
   }
   else if(organism == "hsapiens") {
     symbol <- "hgnc_symbol"
-    ensembl<-  useMart("ensembl", dataset="hsapiens_gene_ensembl", host="uswest.ensembl.org")
+    ensembl<-  useMart("ensembl", dataset="hsapiens_gene_ensembl", host=hostname)
   }
   
   filterData <- NULL
