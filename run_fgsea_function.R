@@ -15,11 +15,11 @@ run_fgsea <- function( pathwaysDatabase, ranksOfGenes, minSizeGroup = 15, maxSiz
   fgseaRes <- fgsea::fgsea(pathways = gmtFile, stats = ranks, minSize = minSizeGroup, maxSize = maxSizeGroup, nperm = npermGroup)
   if(filterPathways) {
     if(filterType == "padj") {
-      fgseaRes <- fgseaRes[which(fgseaRes$padj <= pFilter),]
+      fgseaRes <- fgseaRes[which(fgseaRes$padj < pFilter),]
+      
     }
     else {
-      fgseaRes <- fgseaRes[which(fgseaRes$pval <= pFilter),]
-      
+      fgseaRes <- fgseaRes[which(fgseaRes$pval < pFilter),]
     }
   }
   return(fgseaRes)
