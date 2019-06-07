@@ -1,4 +1,4 @@
-run_fgsea <- function( pathwaysDatabase, ranksOfGenes, minSizeGroup = 15, maxSizeGroup = 500, npermGroup = 1000, filterPathways = FALSE, pFilter = 0.05 ) {
+run_fgsea <- function( pathwaysDatabase, ranksOfGenes, minSizeGroup = 15, maxSizeGroup = 500, npermGroup = 1000, filterPathways = FALSE, filterType = c("pvalue", "padj"), pFilter = 0.05 ) {
   ##### Enrichment analysis
   ### Read GMT filegmtPathways()
   gmtFile <- fgsea::gmtPathways(pathwaysDatabase)
