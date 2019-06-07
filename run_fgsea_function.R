@@ -18,7 +18,7 @@ run_fgsea <- function( pathwaysDatabase, ranksOfGenes, minSizeGroup = 15, maxSiz
       fgseaRes <- fgseaRes[which(fgseaRes$padj <= pFilter),]
     }
     else {
-      fgseaRes <- fgseaRes[which(fgseaRes$pval <= pFilter),]
+      fgseaRes <- fgseaRes[which(fgseaRes$pval <= pFilter),] # eee
     }
   }
   return(fgseaRes)
