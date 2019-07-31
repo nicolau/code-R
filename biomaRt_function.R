@@ -23,7 +23,8 @@ getGeneSymbolFromTranscriptId <- function(values, type = c("transcriptId", "gene
   }
   else if(type == "geneSymbol") {
     filterData <- symbol
-    att <- c("ensembl_transcript_id", "ensembl_gene_id", "embl")  
+    att <- c("ensembl_gene_id")
+    #att <- c("ensembl_transcript_id", "ensembl_gene_id")
   }
   results <- getBM(attributes=c(symbol, "transcript_biotype", att), filters = filterData, values = values, mart = ensembl)
   if(onlyProteinCoding) {
