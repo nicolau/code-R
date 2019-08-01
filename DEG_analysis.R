@@ -32,7 +32,7 @@ DEG_analysis <- function(data, samplesinfo, nontreated = "CTRL", treated = "INF"
   }
   else if(method == "DESeq2") {
     suppressMessages(library(DESeq2))
-    suppressMessages(library(apeglm))
+    suppressMessages(library(apeglm)) 
     colData <- samplesinfo[ which( colnames(rnaseqMatrix) == samplesinfo$Sample ), c(1, 2) ]
     
     contrasts <- c("Class", treated, nontreated)
