@@ -4,7 +4,7 @@ DEG_analysis <- function(data, samplesinfo, nontreated = "CTRL", treated = "INF"
   samplesinfo <- samplesinfo[which(samplesinfo$Class == nontreated | samplesinfo$Class == treated),]
   rnaseqMatrix <- data[ , c( as.character( samplesinfo$Sample ) ) ]
   rnaseqMatrix <- round(rnaseqMatrix)
-  rnaseqMatrix <- rnaseqMatrix[rowSums(cpm(rnaseqMatrix) > 1) >= 2,]
+  rnaseqMatrix <- rnaseqMatrix[rowSums(edgeR::cpm(rnaseqMatrix) > 1) >= 2,]
   repControl <- dim(samplesinfo[ which( samplesinfo$Class == nontreated ), ])[1]
   repInfected <- dim(samplesinfo[ which( samplesinfo$Class == treated ), ])[1]
   
@@ -15,21 +15,21 @@ DEG_analysis <- function(data, samplesinfo, nontreated = "CTRL", treated = "INF"
     conditions = factor(c(rep(nontreated, repControl), rep(treated, repInfected)))
     
     if(verbose) message("Creating DGEList object and normalize expression")
-    exp_study = DGEList(counts=rnaseqMatrix, group=conditions)
-    exp_study = calcNormFactors(exp_study)
+    exp_study = edgeR::DGEList(counts=rnaseqMatrix, group=conditions)
+    exp_study = edgeR::calcNormFactors(exp_study)
     
     if(verbose) message("Analyzing DEG with dispersion")
     if(disp == 0) {
-      disp <- estimateDisp(y = rnaseqMatrix)$common.dispersion
+      disp <- edgeR::estimateDisp(y = rnaseqMatrix)$common.dispersion
     }
-    et = exactTest(exp_study, pair=c(treated, nontreated), dispersion=disp)
-    tTags = topTags(et,n=NULL)
+    et = edgeR::exactTest(exp_study, pair=c(treated, nontreated), dispersion=disp)
+    tTags = edgeR::topTags(et,n=NULL)
     result_table = tTags$table
     #result_table = data.frame(sampleA=treated, sampleB=nontreated, result_table)
     result_table$logFC = -1 * result_table$logFC
     
     return(result_table)
-    result_table %>% datatable()
+    # result_table %>% datatable()
   }
   else if(method == "DESeq2") {
     suppressMessages(library(DESeq2))
