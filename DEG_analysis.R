@@ -1,5 +1,5 @@
 DEG_analysis <- function(data, samplesinfo, nontreated = "CTRL", treated = "INF", disp, method = c("edgeR", "DESeq2"), verbose = F) {
-  suppressMessages(library(edgeR))
+  
   if(verbose) message("Filtering data expression")
   samplesinfo <- samplesinfo[which(samplesinfo$Class == nontreated | samplesinfo$Class == treated),]
   rnaseqMatrix <- data[ , c( as.character( samplesinfo$Sample ) ) ]
@@ -9,6 +9,7 @@ DEG_analysis <- function(data, samplesinfo, nontreated = "CTRL", treated = "INF"
   repInfected <- dim(samplesinfo[ which( samplesinfo$Class == treated ), ])[1]
   
   if(method == "edgeR") {
+    suppressMessages(library(edgeR))
     
     if(verbose) message("Creating group factor")
     conditions = factor(c(rep(nontreated, repControl), rep(treated, repInfected)))
@@ -33,6 +34,7 @@ DEG_analysis <- function(data, samplesinfo, nontreated = "CTRL", treated = "INF"
   else if(method == "DESeq2") {
     suppressMessages(library(DESeq2))
     suppressMessages(library(apeglm)) 
+    
     colData <- samplesinfo[ which( colnames(rnaseqMatrix) == samplesinfo$Sample ), c(1, 2) ]
     
     contrasts <- c("Class", treated, nontreated)
