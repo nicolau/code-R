@@ -2,7 +2,7 @@ DEG_limma <- function(exp, samplesinfo, treatedGroup = "treated", controlGroup =
   design <- model.matrix(~0+samplesinfo$Class)
   colnames(design) <- gsub(".*Class", "", colnames(design))
   fit <- limma::lmFit(exp, design)
-  cont <- limma::makeContrasts(paste0(treatedGroup, "-", controlGroup), levels = design)
+  cont <- limma::makeContrasts(contrasts = paste0(treatedGroup, "-", controlGroup), levels = design)
   fit.cont <- limma::contrasts.fit(fit, cont)
   fit <- limma::eBayes(fit.cont, trend=TRUE)
   result <- limma::topTable(fit, n=Inf) #, coef=ncol(design)
