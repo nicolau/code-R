@@ -1,4 +1,4 @@
-draw_confusion_matrix_v2 <- function(cm) {
+draw_confusion_matrix_v2 <- function(cm, main = "confusion Matrix") {
   total <- sum(cm$table)
   res <- as.numeric(cm$table)
   
@@ -19,7 +19,7 @@ draw_confusion_matrix_v2 <- function(cm) {
   layout(matrix(c(1,1,2)))
   par(mar=c(2,2,2,2))
   plot(c(100, 345), c(300, 450), type = "n", xlab="", ylab="", xaxt='n', yaxt='n')
-  title('CONFUSION MATRIX - Testing set', cex.main=2)
+  title(main, cex.main=2)
   
   # create the matrix 
   classes = colnames(cm$table)
@@ -61,12 +61,12 @@ draw_confusion_matrix_v2 <- function(cm) {
   layout(matrix(c(1,1)))
 }
 
-draw_confusion_matrix <- function(cm) {
+draw_confusion_matrix <- function(cm, main = "confusion Matrix") {
   
   layout(matrix(c(1,1,2)))
   par(mar=c(2,2,2,2))
   plot(c(100, 345), c(300, 450), type = "n", xlab="", ylab="", xaxt='n', yaxt='n')
-  title('CONFUSION MATRIX - Testing set', cex.main=2)
+  title(main, cex.main=2)
   
   # create the matrix 
   rect(150, 430, 240, 370, col='#3F97D0')
