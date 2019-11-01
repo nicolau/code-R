@@ -2,6 +2,7 @@ draw_confusion_matrix_v2 <- function(cm) {
   total <- sum(cm$table)
   res <- as.numeric(cm$table)
   
+  
   # Generate color gradients. Palettes come from RColorBrewer.
   greenPalette <- c("#F7FCF5","#E5F5E0","#C7E9C0","#A1D99B","#74C476","#41AB5D","#238B45","#006D2C","#00441B")
   redPalette <- c("#FFF5F0","#FEE0D2","#FCBBA1","#FC9272","#FB6A4A","#EF3B2C","#CB181D","#A50F15","#67000D")
