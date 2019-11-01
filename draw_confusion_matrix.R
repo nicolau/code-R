@@ -18,7 +18,7 @@ draw_confusion_matrix_v2 <- function(cm) {
   layout(matrix(c(1,1,2)))
   par(mar=c(2,2,2,2))
   plot(c(100, 345), c(300, 450), type = "n", xlab="", ylab="", xaxt='n', yaxt='n')
-  title('CONFUSION MATRIX', cex.main=2)
+  title('CONFUSION MATRIX - Testing set', cex.main=2)
   
   # create the matrix 
   classes = colnames(cm$table)
