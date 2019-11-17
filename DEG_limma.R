@@ -1,6 +1,7 @@
 DEG_limma <- function(exp, samplesinfo, treatedGroup = "treated", controlGroup = "control", adjPcut = 0.05) {
   design <- model.matrix(~0+samplesinfo$Class)
   colnames(design) <- gsub(".*Class", "", colnames(design))
+<<<<<<< HEAD
   
   fit 	   <- limma::lmFit(exp, design)
   cont 	   <- limma::makeContrasts(paste0(treatedGroup, "-", controlGroup), levels = design)
@@ -8,6 +9,14 @@ DEG_limma <- function(exp, samplesinfo, treatedGroup = "treated", controlGroup =
   fit 	   <- limma::eBayes(fit.cont, trend=TRUE)
   result   <- limma::topTable(fit, n=Inf)#, coef=ncol(design))
   result   <- result[result[,"adj.P.Val"] < adjPcut,]
+=======
+  fit <- limma::lmFit(exp, design)
+  cont <- limma::makeContrasts(contrasts = paste0(treatedGroup, "-", controlGroup), levels = design)
+  fit.cont <- limma::contrasts.fit(fit, cont)
+  fit <- limma::eBayes(fit.cont, trend=TRUE)
+  result <- limma::topTable(fit, n=Inf) #, coef=ncol(design)
+  result <- result[result[,"adj.P.Val"] < adjPcut,]
+>>>>>>> 07ea6037f33719db28fbe5dfa0a0c3419a1772ee
   result
 }
 
@@ -23,8 +32,11 @@ DEG_limma_random <- function(exp, samplesinfo, treatedGroup = "treated", control
     outlierHealthy <- as.vector(sample(x = samplesinfo[ which( samplesinfo$Class == controlGroup ), 1], numberOfHealthySamples, replace = TRUE))
     outlierTreated <- as.vector(sample(x = samplesinfo[ which( samplesinfo$Class == treatedGroup ), 1], numberOfTreatedSamples, replace = TRUE))
     outlierJoined <- c(outlierHealthy, outlierTreated)
+<<<<<<< HEAD
 
     if(debug) print(paste0(outlierJoined))
+=======
+>>>>>>> 07ea6037f33719db28fbe5dfa0a0c3419a1772ee
     
     exp2 <- exp[,!(names(exp) %in% outlierJoined) ]
     samplesinfo2 <- samplesinfo[!(samplesinfo$Sample %in% outlierJoined),]

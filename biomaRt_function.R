@@ -1,30 +1,35 @@
-getGeneSymbolFromTranscriptId <- function(values, type = c("transcriptId", "geneId", "geneSymbol"), organism = c("mmusculus", "hsapiens"), onlyProteinCoding = FALSE, onlyGeneSymbol = FALSE) {
+getGeneSymbolFromTranscriptId <- function(values, type = c("transcriptId", "geneId", "geneSymbol"), organism = c("mmusculus", "hsapiens"), onlyProteinCoding = FALSE, onlyGeneSymbol = FALSE, hostname = "uswest.ensembl.org") {
   require(biomaRt)
   att <- NULL # Attributes to show as results
   symbol <- NULL
   ensembl <- NULL
-  if(organism == "mmusculus") {
+  if(organism == "mmusculus") { 
     symbol <- "mgi_symbol"
-    ensembl<-  useMart("ensembl", dataset="mmusculus_gene_ensembl") 
+    ensembl<-  useMart("ensembl", dataset="mmusculus_gene_ensembl", host=hostname)
   }
   else if(organism == "hsapiens") {
     symbol <- "hgnc_symbol"
-    ensembl<-  useMart("ensembl", dataset="hsapiens_gene_ensembl")
+    ensembl<-  useMart("ensembl", dataset="hsapiens_gene_ensembl", host=hostname)
   }
   
   filterData <- NULL
   if(type == "transcriptId") {
     filterData <- "ensembl_transcript_id"
-    att <- c("ensembl_transcript_id", "refseq_dna")
+    att <- c("ensembl_transcript_id")
   }
   else if(type == "geneId") { 
     filterData <- "ensembl_gene_id"
-    att <- c("ensembl_gene_id", "refseq_dna")
+    att <- c("ensembl_gene_id")   
   }
   else if(type == "geneSymbol") {
     filterData <- symbol
-    att <- c("ensembl_transcript_id", "ensembl_gene_id", "refseq_dna") 
+    att <- c("ensembl_gene_id")
+    #att <- c("ensembl_transcript_id", "ensembl_gene_id")
   }
+  else if(type == "probeId") {
+    filterData <- "affy_hg_u133a"
+    att <- c("affy_hg_u133a")
+  }  
   results <- getBM(attributes=c(symbol, "transcript_biotype", att), filters = filterData, values = values, mart = ensembl)
   if(onlyProteinCoding) {
     if(onlyGeneSymbol) {

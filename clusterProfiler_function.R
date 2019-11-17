@@ -9,6 +9,7 @@ clusterprofiler_enrichment <- function(geneList, GMTFile, path = ".", padjCut = 
   }))
   
   # BiocManager::install("GSEABase")
+  BiocManager::install("IRanges")
   BiocManager::install(c("IRanges", "AnnotationDbi"), version = "3.9")
   # BiocManager::install("AnnotationDbi", version = "3.8")
   # BiocManager::
