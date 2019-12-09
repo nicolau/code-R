@@ -30,7 +30,7 @@ getGeneSymbolFromTranscriptId <- function(values, type = c("transcriptId", "gene
     filterData <- "affy_hg_u133a"
     att <- c("affy_hg_u133a")
   }  
-  results <- getBM(attributes=c(symbol, "transcript_biotype", att), filters = filterData, values = values, mart = ensembl)
+  results <- getBM(attributes=c(symbol, "transcript_biotype", "description", att), filters = filterData, values = values, mart = ensembl)
   if(onlyProteinCoding) {
     if(onlyGeneSymbol) {
       return(results[results$transcript_biotype == "protein_coding",1])
