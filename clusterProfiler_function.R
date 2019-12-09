@@ -9,21 +9,21 @@ clusterprofiler_enrichment <- function(geneList, GMTFile, path = ".", padjCut = 
   }))
   
   # BiocManager::install("GSEABase")
-  BiocManager::install("IRanges")
-  BiocManager::install(c("IRanges", "AnnotationDbi"), version = "3.9")
+  # BiocManager::install("IRanges")
+  # BiocManager::install(c("IRanges", "AnnotationDbi"), version = "3.9")
   # BiocManager::install("AnnotationDbi", version = "3.8")
   # BiocManager::
   # remove.packages("IRanges")
   # running date
   
   date <- format(Sys.Date(), "%Y%m%d")
-  path <- "~/sandbox/databases/reactome"
-  GMTFile <- "ReactomePathwaysLevel3.gmt"
+  # path <- "~/sandbox/databases/reactome"
+  # GMTFile <- "ReactomePathwaysLevel3.gmt"
   gmtFile   <- file.path(path, GMTFile)
   geneSets   <- read.gmt(gmtFile)
-  message("AQUI")
+  # message("AQUI")
   
-  geneList <- as.character(geneList[, "V1"])
+  # geneList <- as.character(geneList[, "V1"])
   
   # run ORA
   df <- enricher(geneList,
@@ -54,14 +54,14 @@ clusterprofiler_enrichment <- function(geneList, GMTFile, path = ".", padjCut = 
   df <- df[, colsOrder]
   
   # write output
-  outname <- paste("clusterProfiler_testGMP_", paste(strsplit(f, "_")[[1]][1:6], collapse="_"),
-                   "_padj_", padjCut, "_qvalue_", qvalueCut, "_", date, ".tsv", sep="")
-  dim(df)
+  # outname <- paste("clusterProfiler_testGMP_", paste(strsplit(f, "_")[[1]][1:6], collapse="_"),
+  #                  "_padj_", padjCut, "_qvalue_", qvalueCut, "_", date, ".tsv", sep="")
+  # dim(df)
   # write.table(df, outname, row.names=F, col.names=T, quote=F, sep="\t")
   
   
-  cat("Done\n")
+  # cat("Done\n")
   
-  return("OK")  
+  return(df)  
   
 }
