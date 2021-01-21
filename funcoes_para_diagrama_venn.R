@@ -25,15 +25,15 @@ plot.single.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
   if(file != "NULL") {
     dev.off()
     if(graphicType == "tiff") {
-      tiff(filename = file, width = widthGraph)
+      tiff(filename = paste0(file, ".tiff"), width = widthGraph)
       grid.draw(venn.plot)
     }
     else if(graphicType == "pdf") {
-      pdf(file, width = widthGraph)
+      pdf(paste0(file, ".pdf"), width = widthGraph)
       grid.draw(venn.plot)
     }
     else {
-      png(filename = file, width = widthGraph)
+      png(filename = paste0(file, ".png"), width = widthGraph)
       grid.draw(venn.plot)
     }
     dev.off()
@@ -89,15 +89,15 @@ plot.pairwise.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
   if(file != "NULL") {
     dev.off()
     if(graphicType == "tiff") {
-      tiff(filename = file, width = widthGraph)
+      tiff(filename = paste0(file, ".tiff"), width = widthGraph)
       grid.draw(venn.plot)
     }
     else if(graphicType == "pdf") {
-      pdf(file, width = widthGraph)
+      pdf(paste0(file, ".pdf"), width = widthGraph)
       grid.draw(venn.plot)
     }
     else {
-      png(filename = file, width = widthGraph)
+      png(filename = paste0(file, ".png"), width = widthGraph)
       grid.draw(venn.plot)
     }
     dev.off()
@@ -168,15 +168,15 @@ plot.triple.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g", "h" ),
   if(file != "NULL") {
     dev.off()
     if(graphicType == "tiff") {
-      tiff(filename = file, width = widthGraph)
+      tiff(filename = paste0(file, ".tiff"), width = widthGraph)
       grid.draw(venn.plot)
     }
     else if(graphicType == "pdf") {
-      pdf(file, width = widthGraph)
+      pdf(paste0(file, ".pdf"), width = widthGraph)
       grid.draw(venn.plot)
     }
     else {
-      png(filename = file, width = widthGraph)
+      png(filename = paste0(file, ".png"), width = widthGraph)
       grid.draw(venn.plot)
     }
     dev.off()
@@ -280,15 +280,15 @@ plot.quad.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
   if(file != "NULL") {
     dev.off()
     if(graphicType == "tiff") {
-      tiff(filename = file, width = widthGraph)
+      tiff(filename = paste0(file, ".tiff"), width = widthGraph)
       grid.draw(venn.plot)
     }
     else if(graphicType == "pdf") {
-      pdf(file, width = widthGraph)
+      pdf(paste0(file, ".pdf"), width = widthGraph)
       grid.draw(venn.plot)
     }
     else {
-      png(filename = file, width = widthGraph)
+      png(filename = paste0(file, ".png"), width = widthGraph)
       grid.draw(venn.plot)
     }
     dev.off()
@@ -432,15 +432,15 @@ plot.quin.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
   if(file != "NULL") {
     dev.off()
     if(graphicType == "tiff") {
-      tiff(filename = file, width = widthGraph)
+      tiff(filename = paste0(file, ".tiff"), width = widthGraph)
       grid.draw(venn.plot)
     }
     else if(graphicType == "pdf") {
-      pdf(file, width = widthGraph)
+      pdf(paste0(file, ".pdf"), width = widthGraph)
       grid.draw(venn.plot)
     }
     else {
-      png(filename = file, width = widthGraph)
+      png(filename = paste0(file, ".png"), width = widthGraph)
       grid.draw(venn.plot)
     }
     dev.off()
