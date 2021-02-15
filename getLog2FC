@@ -1,0 +1,18 @@
+getLogFC <- function(x, phenodata, treated, nontreated, id) {
+  dataLogFC <- NULL
+  for(feature in rownames(x)) {
+    treated_values    <- as.vector(unlist(x[rownames(x) == feature, phenodata[phenodata$Class == treated,    id]]))
+    nontreated_values <- as.vector(unlist(x[rownames(x) == feature, phenodata[phenodata$Class == nontreated, id]]))
+    
+    log2FC <- log2(mean(treated_values) / mean(nontreated_values))
+    
+    dataTemp <- data.frame(Node = feature, Log2FC = log2FC)
+    
+    if(is.null(dataLogFC)) {
+      dataLogFC <- dataTemp
+    } else {
+      dataLogFC <- rbind(dataLogFC, dataTemp)
+    }
+  }
+  return(dataLogFC)
+}
