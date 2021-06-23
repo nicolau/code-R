@@ -4,7 +4,7 @@ removeLowGenesExpression <- function(exp, minimumGeneExpression=0, percentageSam
 	exp$meanG     <- apply( exp[ , 2:ncol( exp ) ], 1, mean )
 	exp           <- exp[ order( exp[ , geneCol ], exp[ , 'meanG' ] ), ]
 	exp           <- exp[ !duplicated( exp[, geneCol] ), ]
-	# rownames(exp) <- exp$Symbol
+	# rownames(exp) <- exp$Symbol 
 
 	# Get all sample without mean column (last column)
 	# Run only variable minimumGeneExpression was defined
