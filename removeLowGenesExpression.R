@@ -9,9 +9,9 @@ removeLowGenesExpression <- function(exp, minimumGeneExpression=0, percentageSam
 	# Get all sample without mean column (last column)
 	# Run only variable minimumGeneExpression was defined
 	if(percentageSamples == 0) {
-		exp <- exp[ , c(geneCol, 2:( ncol( exp ) - 1 ) ) ]
+		exp <- exp[ , 1:( ncol( exp ) - 1 ) ]
 	} else if(percentageSamples > 0) {
-		exp2 <- exp[ , c(geneCol, 2:( ncol( exp ) - 1 )) ]
+		exp2 <- exp[ , 1:( ncol( exp ) - 1 ) ]
 		NumberOfSamplesMinimumValueAllowed <- round( (percentageSamples/100) * ncol( exp2 ) )
 		exp2 <- exp2[rowSums( exp2 <= minimumGeneExpression ) <= NumberOfSamplesMinimumValueAllowed, ]
 		exp <- exp2
