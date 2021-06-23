@@ -1,8 +1,8 @@
 
-removeLowGenesExpression <- function(exp, minimumGeneExpression=0, percentageSamples=75) {
+removeLowGenesExpression <- function(exp, minimumGeneExpression=0, percentageSamples=75, geneCol = "Symbol") {
 	#Colapse symbols that are duplicated by taking the one with higest expression
 	exp$meanG     <- apply( exp[ , 2:ncol( exp ) ], 1, mean )
-	exp           <- exp[ order( exp[ , 'Symbol' ], exp[ , 'meanG' ] ), ]
+	exp           <- exp[ order( exp[ , geneCol ], exp[ , 'meanG' ] ), ]
 	exp           <- exp[ !duplicated( exp$Symbol ), ]
 	rownames(exp) <- exp$Symbol
 
