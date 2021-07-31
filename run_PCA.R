@@ -51,7 +51,7 @@ run_PCA <- function(data, phenodata, savebarplot = F, savescatterplot = F, direc
       coord_fixed() +
       xlim(c(ceiling(min(mds$Dim1))-1,ceiling(max(mds$Dim1))+1)) +
       ylim(c(ceiling(min(mds$Dim2))-1,ceiling(max(mds$Dim2))+1))
-    #ggsave(filename = paste0(directory, "/MDS_D1_vs_D2_.", typePlot), width = 4, height = 4)
+    ##ggsave(filename = paste0(directory, "/MDS_D1_vs_D2_.", typePlot), width = 4, height = 4)
     ggsave(filename = paste0(directory, "/MDS_D1_vs_D2_.pdf"), width = 4, height = 4)
   }
 }
