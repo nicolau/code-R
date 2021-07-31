@@ -35,11 +35,11 @@ run_PCA <- function(data, phenodata, savebarplot = F, savescatterplot = F, direc
     colnames(mds) <- c("Dim1", "Dim2", "Dim3")
     
     typePlot     <- "jpg"
-    mds$AgeGroup <- phenodata[, "AgeGroup"]
+    #mds$AgeGroup <- phenodata[, "AgeGroup"]
     mds$Class    <- phenodata[, "Class"]
     
     suppressMessages(library(ggalt))
-    ggplot(mds, aes(Dim1, Dim2, color=AgeGroup, shape=Class)) +
+    ggplot(mds, aes(Dim1, Dim2, color=Class)) +#, shape=Class)) +
       geom_point(size=3) +
       theme_bw() +
       theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
@@ -51,7 +51,7 @@ run_PCA <- function(data, phenodata, savebarplot = F, savescatterplot = F, direc
       coord_fixed() +
       xlim(c(ceiling(min(mds$Dim1))-1,ceiling(max(mds$Dim1))+1)) +
       ylim(c(ceiling(min(mds$Dim2))-1,ceiling(max(mds$Dim2))+1))
-    ggsave(filename = paste0(directory, "/MDS_D1_vs_D2_.", typePlot), width = 4, height = 4)
+    #ggsave(filename = paste0(directory, "/MDS_D1_vs_D2_.", typePlot), width = 4, height = 4)
     ggsave(filename = paste0(directory, "/MDS_D1_vs_D2_.pdf"), width = 4, height = 4)
   }
 }
