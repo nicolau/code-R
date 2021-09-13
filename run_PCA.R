@@ -1,4 +1,4 @@
-run_PCA <- function(data, pdata, directory = ".", show_barplot = FALSE, show_scatterplot = FALSE, show_labes = FALSE){ 
+run_PCA <- function(data, pdata, directory = ".", show_barplot = FALSE, show_scatterplot = FALSE, show_labels = FALSE){ 
   
   data_for_PCA <- t(data)
   
