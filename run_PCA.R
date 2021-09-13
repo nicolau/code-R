@@ -41,11 +41,11 @@ run_PCA <- function(data, pdata, directory = ".", show_barplot = FALSE, show_sca
     suppressMessages(library(ggalt))
     p <- ggplot(mds, aes(Dim1, Dim2, color = Class, shape = Batch)) +#, shape = Batch)) +
       geom_point(size=3) +
-      theme_bw() +
+      theme_bw()
       if(show_labels) {
-        geom_label_repel(aes(label = Sample, fill = factor(Class)), color = 'white', size = 3.5) +
+        p <- p + geom_label_repel(aes(label = Sample, fill = factor(Class)), color = 'white', size = 3.5)
       }
-      theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
+      p <- p + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
       theme(text = element_text(size = 8), legend.position = "top") +
       xlab(paste0("Dim 1 (", format(eig_pc[1], digits = 4), "% explained var.)")) +
       ylab(paste0("Dim 2 (", format(eig_pc[2], digits = 4), "% explained var.)")) +
