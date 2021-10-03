@@ -45,7 +45,7 @@ plot.single.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
   
   if(saveGroupFile) {
     if(file != "NULL") {
-      prefix <- sub("^([^.]*).*", "\\1", file)
+      prefix <- sub(paste0("^([^.]*).", graphicType), "\\1", file)
     }
     else {
       prefix <- "groups"
@@ -109,7 +109,7 @@ plot.pairwise.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
   
   if(saveGroupFile) {
     if(file != "NULL") {
-      prefix <- sub("^([^.]*).*", "\\1", file)
+      prefix <- sub(paste0("^([^.]*).", graphicType), "\\1", file)
     }
     else {
       prefix <- "groups"
@@ -188,7 +188,7 @@ plot.triple.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g", "h" ),
   
   if(saveGroupFile) {
     if(file != "NULL") {
-      prefix <- sub("^([^.]*).*", "\\1", file)
+      prefix <- sub(paste0("^([^.]*).", graphicType), "\\1", file)
     }
     else {
       prefix <- "groups"
@@ -300,7 +300,7 @@ plot.quad.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
   
   if(saveGroupFile) {
     if(file != "NULL") {
-      prefix <- sub("^([^.]*).*", "\\1", file)
+      prefix <- sub(paste0("^([^.]*).", graphicType), "\\1", file)
     }
     else {
       prefix <- "groups"
@@ -452,7 +452,7 @@ plot.quin.venn <- function(a1 = c( "a", "b", "c", "d", "e", "t", "g" ),
   
   if(saveGroupFile) {
     if(file != "NULL") {
-      prefix <- sub("^([^.]*).*", "\\1", file)
+      prefix <- sub(paste0("^([^.]*).", graphicType), "\\1", file)
     }
     else {
       prefix <- "groups"
