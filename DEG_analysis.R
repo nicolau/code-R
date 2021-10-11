@@ -23,7 +23,7 @@ DEG_analysis <- function(data, samplesinfo, nontreated = "CTRL", treated = "INF"
       disp <- edgeR::estimateDisp(y = rnaseqMatrix)$common.dispersion
     }
     et = edgeR::exactTest(exp_study, pair=c(treated, nontreated), dispersion=disp)
-    tTags = edgeR::topTags(et, n=NULL, confint=TRUE) 
+    tTags = edgeR::topTags(et, n=NULL)
     result_table = tTags$table
     #result_table = data.frame(sampleA=treated, sampleB=nontreated, result_table)
     result_table$logFC = -1 * result_table$logFC
